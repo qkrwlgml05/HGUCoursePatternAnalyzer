@@ -37,14 +37,12 @@ public class HGUCoursePatternAnalyzer {
 		
 		System.out.println("Number of All Students: " + numOfStudents);
 		for(Student student: students) {
-			if (student == null) break;
 			System.out.println(student.getName());
 		}
 		
 		courses = initiateCourseArrayFromLines(lines);
 		System.out.println("Number of All Courses: " + numOfCourses);
 		for(Course course: courses) {
-			if (course == null) break;
 			System.out.println(course.getCourseName());
 		}
 		
@@ -58,17 +56,22 @@ public class HGUCoursePatternAnalyzer {
 	private Student[] initiateStudentArrayFromLines(String[] lines) {
 		
 		// TODO: implement this method
-		Student[] students = new Student[lines.length];
+		Student[] student = new Student[lines.length];
 		int size = 0;
 		
 		for (int i = 0; i < lines.length; i++){
 			Student name = new Student(lines[i].split(",")[1].trim());
 			
-			if(!studentExist(students, name)) {
-				students[size] = new Student(name.getName());
+			if(!studentExist(student, name)) {
+				student[size] = new Student(name.getName());
 				size++;
 			}
 		}
+		Student[] students = new Student[size];
+		for (int i = 0; i < size; i++){
+			students[i] = student[i];
+		}
+
 		return students;
 	}
 
@@ -98,16 +101,21 @@ public class HGUCoursePatternAnalyzer {
 	private Course[] initiateCourseArrayFromLines(String[] lines) {
 		
 		// TODO: implement this method
-		Course[] courses = new Course[lines.length];
+		Course[] course = new Course[lines.length];
 		int size = 0;
 		
 		for (int i = 0; i < lines.length; i++){
 			Course name = new Course(lines[i].split(",")[2].trim());
-			if(size == 0 || !courseExist(courses, name)) {
-				courses[size] = new Course(name.getCourseName());
+			if(size == 0 || !courseExist(course, name)) {
+				course[size] = new Course(name.getCourseName());
 				size++;
 			}
-		}	
+		}
+		Course[] courses = new Course[size];
+		for (int i = 0; i < size; i++){
+			courses[i] = course[i];
+		}
+
 		return courses;
 	}
 
