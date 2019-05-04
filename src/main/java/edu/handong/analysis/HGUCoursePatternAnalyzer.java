@@ -51,12 +51,12 @@ public class HGUCoursePatternAnalyzer {
 	/**
 	 * This method returns a Student array to initiate the field, students, from lines.
 	 * @param lines
-	 * @return
+	 * @return Student[]
 	 */
 	private Student[] initiateStudentArrayFromLines(String[] lines) {
 		
 		// TODO: implement this method
-		Student[] student = new Student[lines.length];
+		Student[] student = new Student[numOfStudents];
 		int size = 0;
 		
 		for (int i = 0; i < lines.length; i++){
@@ -67,12 +67,8 @@ public class HGUCoursePatternAnalyzer {
 				size++;
 			}
 		}
-		Student[] students = new Student[size];
-		for (int i = 0; i < size; i++){
-			students[i] = student[i];
-		}
 
-		return students;
+		return student;
 	}
 
 	/**
@@ -96,12 +92,12 @@ public class HGUCoursePatternAnalyzer {
 	/**
 	 * This method returns a Course array to initiate the field, courses, from lines.
 	 * @param lines
-	 * @return
+	 * @return Course[]
 	 */
 	private Course[] initiateCourseArrayFromLines(String[] lines) {
 		
 		// TODO: implement this method
-		Course[] course = new Course[lines.length];
+		Course[] course = new Course[numOfCourses];
 		int size = 0;
 		
 		for (int i = 0; i < lines.length; i++){
@@ -111,12 +107,8 @@ public class HGUCoursePatternAnalyzer {
 				size++;
 			}
 		}
-		Course[] courses = new Course[size];
-		for (int i = 0; i < size; i++){
-			courses[i] = course[i];
-		}
 
-		return courses;
+		return course;
 	}
 
 	/**
